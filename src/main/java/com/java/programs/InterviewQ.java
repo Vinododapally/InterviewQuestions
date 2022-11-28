@@ -3,6 +3,7 @@ package com.java.programs;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class InterviewQ {
     public static void main(String[] args) {
@@ -57,6 +58,13 @@ public class InterviewQ {
         System.out.println("Print duplicate values from the comma separated string and we can do same for space and all the special chars ");
         duplicateWordsFrom("vinod,vinod,raj,nani,nani");
         List<Employee> employeeList = getList();
+        System.out.println("Print array elements to upper case");
+        String [] array = {"vinod","sai","hyd"};
+        System.out.println(Stream.of(array).map(String::toUpperCase).collect(Collectors.toList()));
+        System.out.println("Print th total count of string");
+        String words = "This is Vinod Odapally";
+        String[] strings = words.split(" ");
+        System.out.println( Arrays.stream(strings).count());
         Optional<Employee> employeeFirstObject = employeeList.stream().sorted(Comparator.comparingDouble(Employee::getId)).findFirst();
         System.out.println("Find first object from the employee list = "+employeeFirstObject.get());
         Optional<Employee> employeeLastObject = employeeList.stream().sorted(Comparator.comparingDouble(Employee::getId).reversed()).findFirst();
@@ -76,6 +84,18 @@ public class InterviewQ {
         System.out.println("Print the name and id of the employee witch is greater then the 20000");
         employeeList.stream().filter(employee -> employee.getSalary()>20000).forEach(emp->System.out.println(emp.getName()+":"+emp.getId()));
 
+        System.out.println("Merging of two arrays");
+        Integer [] array1= {1,2,3};
+        Integer [] array2= {4,5,6};
+        Stream.of(array1,array2).flatMap(Stream::of).forEach(System.out::println);
+        System.out.println("Merging of two Lists");
+        String [] first={"Vinod","Raj"};
+        String [] snd={"Vamshi","Mahesh"};
+        List<String> lst1 = Arrays.asList(first);
+        List<String> lst2 = Arrays.asList(snd);
+        Stream.of(lst1,lst2).flatMap(Collection::stream).forEach(System.out::println);
+        System.out.println("Count of string using Map:");
+        countOfStringUsingMap();
     }
 
     static boolean primeNumber(int number){
@@ -161,6 +181,21 @@ public class InterviewQ {
         for (Map.Entry<String,Integer> maps: map.entrySet()){
             System.out.println(maps.getKey()+":"+maps.getValue());
         }
+    }
+
+    static void countOfStringUsingMap(){
+        String words = "This is a Programming Interview";
+        Map<String, Integer> map = new HashMap<>();
+        String[] strings = words.split(" ");
+
+        for (String st : strings) {
+            if(map.containsKey(st)){
+                map.put(st,map.get(st)+1);
+            }else {
+                map.put(st,1);
+            }
+        }
+        System.out.println("Count of words from the String using map: "+map.size());
     }
 
     static List<Employee> getList(){
