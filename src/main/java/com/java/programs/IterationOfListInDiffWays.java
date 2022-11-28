@@ -36,7 +36,8 @@ public class IterationOfListInDiffWays extends InterviewQ {
             Employee e = listIterator.next();
             System.out.println(e.getId()+":"+e.getName());
         }
-
+         // An Iterator is an interface in Java and we can traverse the elements of a list in a forward direction whereas a ListIterator is an
+        // interface that extends the Iterator interface and we can traverse the elements in both forward and backward directions.
         // Map Iteration starts here:
         // Note: https://www.codingame.com/playgrounds/6162/6-ways-to-iterate-or-loop-a-map-in-java
 

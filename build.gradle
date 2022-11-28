@@ -11,11 +11,25 @@ sourceCompatibility = '1.8'
 repositories {
 	mavenCentral()
 }
-
+// 1.this is one of the way to override the tomcat server. exclude tomcat and add other server dependency.
+configurations.all {
+	exclude module: "spring-boot-starter-tomcat"
+}
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-jetty'
+
+// 2. This is another way of overriding tomcat
+
+	//implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+//	modules {
+//		module("org.springframework.boot:spring-boot-starter-tomcat") {
+//			replacedBy("org.springframework.boot:spring-boot-starter-jetty", "Use Jetty instead of Tomcat")
+//		}
+//	}
+
 }
 
 tasks.named('test') {
