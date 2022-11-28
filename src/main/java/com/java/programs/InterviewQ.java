@@ -5,6 +5,7 @@ import com.java.programs.model.Employee;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 public class InterviewQ {
@@ -98,6 +99,8 @@ public class InterviewQ {
         Stream.of(lst1,lst2).flatMap(Collection::stream).forEach(System.out::println);
         System.out.println("Count of string using Map:");
         countOfStringUsingMap();
+        swapValues();
+        fibonacci();
     }
 
     static boolean primeNumber(int number){
@@ -208,5 +211,30 @@ public class InterviewQ {
         list.add(new Employee(400,"manoj","manoj@gmail.com",4000.0,30));
         list.add(new Employee(500,"manoj","ravi@gmail.com",50000.0,29));
         return list;
+    }
+
+    static void swapValues(){
+        int a =10;int x =30;int b =20;int y =40;
+        System.out.println("Without third variable");
+        x=x+y;y=x-y;x=x-y;
+        System.out.println("value of x= "+x+" value of y= "+y);
+        System.out.println("Wit third variable");
+        int t=a;a=b;b=t;
+        System.out.println("value of a= "+a+" value of b= "+b);
+    }
+
+    static void fibonacci(){
+        System.out.println("Fibonacci Series");
+        int n1=0,n2=1,n3;
+        System.out.print(n1+" "+n2);
+        for (int i = 2; i <10 ; i++) {
+             n3= n1+n2;
+            System.out.print(" "+n3);
+            n1=n2;n2=n3;
+        }
+        System.out.println("\n Fibonacci Series in java8");
+        final long[] prev = {0};
+        LongStream.iterate(1, n -> {n+= prev[0]; prev[0] =n- prev[0]; return n;}).
+                limit(5).forEach(System.out::println);
     }
 }
