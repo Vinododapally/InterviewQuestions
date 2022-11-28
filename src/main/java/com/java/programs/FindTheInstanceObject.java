@@ -1,5 +1,8 @@
 package com.java.programs;
 
+import com.java.programs.model.Employee;
+import com.java.programs.model.Student;
+
 import java.util.HashMap;
 import java.util.Map;
 

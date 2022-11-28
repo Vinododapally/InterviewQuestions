@@ -1,4 +1,4 @@
-package com.java.programs;
+package com.java.programs.model;
 
 public class Student {
     int id;

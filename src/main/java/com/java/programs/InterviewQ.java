@@ -1,5 +1,7 @@
 package com.java.programs;
 
+import com.java.programs.model.Employee;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
