@@ -33,6 +33,7 @@ public class StringManipulations {
     static void countOfFirstLetterFromArrayString(){
         Map<Character,Integer> map = new HashMap<>();
         String[] words = {"Vinod","Sai","Manoj","Varun"};
+        String[] words1 = {"vinod","sai","manoj","varun"};
         for (int i=0;i< words.length;i++){            // Here we can use any index instead of 0
             if(map.containsKey(words[i].charAt(0))){
                 map.put(words[i].charAt(0), map.get(words[i].charAt(0))+1);
@@ -51,6 +52,8 @@ public class StringManipulations {
 
         String str = "Vinnodd";
         System.out.println("Duplicate char in string");
-        str.chars().mapToObj(c ->(char)  c).collect(Collectors.groupingBy(c->c,Collectors.counting())).forEach((c,f)-> System.out.println(c+":"+f));
+        //str.chars().mapToObj(c ->(char)  c).collect(Collectors.groupingBy(c->c,Collectors.counting())).forEach((c,f)-> System.out.println(c+":"+f));
+
+    Arrays.stream(words1).map(s->Character.toUpperCase(s.charAt(0))+s.substring(1)).forEach(System.out::println);
     }
 }
