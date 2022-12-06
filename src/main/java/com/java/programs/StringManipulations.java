@@ -2,6 +2,7 @@ package com.java.programs;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -54,6 +55,6 @@ public class StringManipulations {
         System.out.println("Duplicate char in string");
         //str.chars().mapToObj(c ->(char)  c).collect(Collectors.groupingBy(c->c,Collectors.counting())).forEach((c,f)-> System.out.println(c+":"+f));
 
-    Arrays.stream(words1).map(s->Character.toUpperCase(s.charAt(0))+s.substring(1)).forEach(System.out::println);
+          Arrays.stream(words1).map(s->Character.toUpperCase(s.charAt(0))+s.substring(1)).forEach(System.out::println);
     }
 }

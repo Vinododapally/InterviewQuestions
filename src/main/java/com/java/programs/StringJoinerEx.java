@@ -1,6 +1,6 @@
 package com.java.programs;
 
-import javax.print.attribute.SetOfIntegerSyntax;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.StringJoiner;
@@ -16,6 +16,7 @@ public class StringJoinerEx {
         interSection(array1,array2);
         System.out.println("print both array's without duplicates");
         union(array1,array2);
+        anagram();
     }
 
     static void interSection(int [] array1,int [] array2){
@@ -39,4 +40,18 @@ public class StringJoinerEx {
         }
         System.out.println(set);
     }
+     static void anagram(){
+        String firstString = "vinod";
+        String secondString = "divno";
+        char[] c1= firstString.toCharArray();
+        char[] c2= secondString.toCharArray();
+         Arrays.sort(c1);
+         Arrays.sort(c2);
+         boolean result = Arrays.equals(c1,c2);
+         if (result){
+             System.out.println("Strings are anagrams");
+         }else{
+             System.out.println("given string are not anagrams");
+         }
+     }
 }
