@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.StringJoiner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringJoinerEx {
     public static void main(String[] args) {
@@ -17,6 +19,7 @@ public class StringJoinerEx {
         System.out.println("print both array's without duplicates");
         union(array1,array2);
         anagram();
+        repeatedSubstringCount("ababababa","ba");
     }
 
     static void interSection(int [] array1,int [] array2){
@@ -53,5 +56,15 @@ public class StringJoinerEx {
          }else{
              System.out.println("given string are not anagrams");
          }
+     }
+
+     static void repeatedSubstringCount(String wholeString, String subString){
+         Pattern pattern = Pattern.compile(subString);
+         Matcher matcher = pattern.matcher(wholeString);
+         int count =0;
+         while (matcher.find()){
+             count++;
+         }
+         System.out.println("repeated subString count "+ subString+":"+count);
      }
 }
